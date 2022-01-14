@@ -45,7 +45,7 @@ body {
   align-items: center;
 }
 
-form {
+.pdfs {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -58,7 +58,7 @@ form {
   padding: 1rem;
 }
 
-form button,
+button,
 a {
   cursor: pointer;
   border: none;
@@ -98,8 +98,15 @@ a {
 .openBtn :hover {
   color: rgb(0, 0, 255);
 }
+.uploadBtn input {
+  display: none;
+}
+.image-upload > input {
+  display: none;
+}
 
 i,
+label,
 svg {
   pointer-events: none;
 }
