@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Bitter");
 
 * {
+  margin: 0;
   /* border: 1px solid red; */
 }
 
@@ -50,7 +51,7 @@ form {
   align-items: center;
   padding: 1rem;
 }
-.uploadDelete {
+.uploadDone {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,14 +86,22 @@ a {
   /*background: rgba(255, 200, 255, 0.5);*/
   /*font-size: 2rem;*/
 }
-.uploadBtn :hover {
+.up-hover-js {
   color: rgb(253, 179, 67);
 }
-.deleteBtn :hover {
-  color: rgb(253, 65, 65);
+.dn-hover-js {
+  color: rgb(255, 95, 95);
+}
+.op-hover-js {
+  color: rgb(0, 0, 255);
 }
 .openBtn :hover {
   color: rgb(0, 0, 255);
+}
+
+i,
+svg {
+  pointer-events: none;
 }
 
 .pagesNumber {

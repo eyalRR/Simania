@@ -92,13 +92,71 @@ class Book {
   }
 
 }
-
 //main();
+
+
+// Query Selectors
+const form = document.querySelectorAll('form');
 const bars = document.querySelectorAll('.bar');
 const progress = document.querySelectorAll('.progress');
 let bookName = document.querySelectorAll('.bookName')
 let totalPages = document.querySelectorAll('.totalPages');
 let pagesRead = document.querySelectorAll('.pagesRead');
+let uploadBtn = document.querySelectorAll('.uploadBtn');
+let doneBtn = document.querySelectorAll('.doneBtn');
+let openBtn = document.querySelectorAll('.openBtn');
+
+// ADD Event Listeners
+form.forEach(form =>{
+    form.addEventListener('click',e => {
+        e.preventDefault();
+    });
+}); 
+
+uploadBtn.forEach((upBtn,id) =>{
+    upBtn.addEventListener('mouseover', hoverStyle);
+    upBtn.addEventListener('mouseout', hoverStyle);
+    upBtn.addEventListener('click', uploadPdf);
+}); 
+doneBtn.forEach((dnBtn,id) =>{
+    dnBtn.addEventListener('mouseover', hoverStyle);
+    dnBtn.addEventListener('mouseout', hoverStyle);
+    dnBtn.addEventListener('click', donePdf);
+}); 
+openBtn.forEach((opBtn,id) =>{
+    opBtn.addEventListener('mouseover', hoverStyle);
+    opBtn.addEventListener('mouseout', hoverStyle);
+    opBtn.addEventListener('click', openPdf);
+}); 
+
+//FUNCTION DECLARATION
+function hoverStyle(e){
+    //console.log(e)
+    const btn = e.target;
+    const btnName = btn.className;
+    if(btn.classList.contains('uploadBtn')){
+        btn.classList.toggle('up-hover-js');
+    }
+    if(btn.classList.contains('doneBtn')){
+        btn.classList.toggle('dn-hover-js');
+    }
+    if(btn.classList.contains('openBtn')){
+         //   btn.classList.toggle('op-hover-js');
+        btn.style.color = 'rgb(0, 0, 255)';
+    }   
+}
+function uploadPdf(){
+    
+}
+function donePdf(){
+
+}
+function openPdf(){
+    let pdf = "./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" ;
+    window.open(pdf);
+}
+
+// Maim program
 
 const book = new Book();
 //book.add(`harry`,`512`,`66`,'2');
@@ -108,16 +166,19 @@ const book = new Book();
 
 //Upload books from firestore(server) when page refreshed
 let a = book.getAll();
-console.log(`UPLOAD BOOKS`);
-let b = a.then(value => {
+console.log(`UPLOAD BOOKS:`);
+let b = a.then(value => { // Value = all books from firestore
     value.forEach((book,id)=>{
-        console.log(book);
+        console.log(`${id+1}) ${book.name}`);
         bookName[id].value =book.name;
         totalPages[id].value =book.totalPages;
         pagesRead[id].value =book.pagesRead;
-    })
+        //Fill Bars
+        let fill = pagesRead[id].value / totalPages[id].value * 100;
+        bars[id].style.width = `${fill}%`;
+    });
+    
 });
-
   
 bars.forEach((bar, index) => {
   progress[index].addEventListener('mouseover', () => {
@@ -130,9 +191,7 @@ bars.forEach((bar, index) => {
     //console.log(`index=`, index, 'name=', bName,`total=`, tPgs, `read=`, rPgs);
 
     let fill = pagesRead[index].value / totalPages[index].value * 100;
-    bar.style.width = `${fill}%`;
-
-    
+    bar.style.width = `${fill}%`; 
 
     /*const randomTiming = Math.floor((Math.random() * 2) + 2);
     console.log(randomTiming);
@@ -140,4 +199,5 @@ bars.forEach((bar, index) => {
     bar.style.width = '100%';*/
   });
 })
+
 
