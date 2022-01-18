@@ -2,6 +2,7 @@
 
 * {
   margin: 0;
+  padding: 0;
   /* border: 1px solid red; */
 }
 
@@ -9,10 +10,13 @@
   --font: "Bitter", serif;
   --title-size: 36px;
   --sub-size: 18px;
+  --book-size: 16px;
 }
 
 body {
   background: rgb(229, 229, 229);
+  font-family: var(--font);
+  font-size: var(--sub-size);
 }
 
 .title h1 {
@@ -45,7 +49,7 @@ body {
   align-items: center;
 }
 
-.pdfs {
+.controls {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -56,6 +60,44 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+}
+.done-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /*0.5 opacity*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+
+  opacity: 0;
+  pointer-events: none;
+}
+.done-popup {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 2rem;
+  transition: transform 0.5s ease;
+  transform: translateY(-2rem);
+  min-width: 50%;
+  min-height: 20vh;
+}
+.done-popup h4 {
+  font-size: 2rem;
+  padding: 2rem;
+}
+.done-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.done-popup.active {
+  transform: translateY(0rem);
 }
 
 button,
@@ -132,7 +174,7 @@ svg {
   border: none;
   font-family: var(--font);
   padding-left: 10px;
-  font-size: var(--sub-size);
+  font-size: var(--book-size);
   font-weight: bold;
   text-align: center;
   /*  border-bottom: 1px solid;*/
@@ -150,7 +192,7 @@ svg {
 .pagesInputRow p {
   /*padding-bottom: 5px;*/
   font-family: var(--font);
-  font-size: var(--sub-size);
+  font-size: var(--book-size);
   width: 100px;
   height: 20px;
 }
@@ -164,7 +206,7 @@ svg {
   border: none;
   font-family: var(--font);
   padding-left: 10px;
-  font-size: var(--small-size);
+  font-size: var(--book-size);
 }
 .pagesRead {
   display: inline-block;
@@ -175,7 +217,7 @@ svg {
   border: none;
   font-family: var(--font);
   padding-left: 10px;
-  font-size: var(--small-size);
+  font-size: var(--book-size);
 }
 
 .progress {

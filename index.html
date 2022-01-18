@@ -28,20 +28,21 @@
             </label>
             <input id="file-input" type="file" />
           </div>
+
         <div class="box"> <!--first book--> 
-            <div class="pdfs">
+            <div class="controls">
                     <div class="uploadDone">          
-                        <button class=uploadBtn>
+                        <button class=uploadBtn data-value = 0>
                             <label>
                                 <i class="fas fa-file-upload"></i>
                             </label>
                             <input type="file" class="uploadPdf"/>
                         </button>
-                        <button class="doneBtn">
+                        <button class="doneBtn" data-value = 0>
                             <i class="fas fa-check-square"></i>
                         </button>
                     </div>
-                        <button class="openBtn">
+                        <button class="openBtn" data-value = 0>
                             <a 
                             href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
                             target="blank"> <i class="fa-solid fa-book-open"></i> </a>
@@ -65,16 +66,16 @@
         </div>
 
         <div class="box"> <!-- second book -->
-            <div class="pdfs">
+            <div class="controls">
                     <div class="uploadDone">
-                        <button class="uploadBtn">
+                        <button class="uploadBtn" data-value = 1>
                             <i class="fas fa-file-upload"></i>
                         </button>
-                        <button class=doneBtn>
+                        <button class=doneBtn data-value = 1>
                             <i class="fas fa-check-square"></i>
                         </button>
                     </div>
-                        <button class="openBtn">
+                        <button class="openBtn" data-value = 1>
                             <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
                             target="blank"> <i class="fa-solid fa-book-open"></i> </a>
                         </button>  
@@ -96,16 +97,16 @@
             </div>
         </div>
         <div class="box"> <!-- third book -->
-            <div class="pdfs">
+            <div class="controls">
                     <div class="uploadDone">
-                        <button class="uploadBtn">
+                        <button class="uploadBtn" data-value = 2>
                             <i class="fas fa-file-upload"></i>
                         </button>
-                        <button class=doneBtn>
+                        <button class=doneBtn data-value = 2>
                             <i class="fas fa-check-square"></i>
                         </button>
                     </div>
-                        <button class="openBtn">
+                        <button class="openBtn" data-value = 2>
                             <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
                             target="blank"> <i class="fa-solid fa-book-open"></i> </a>
                         </button>  
@@ -127,16 +128,16 @@
             </div>
         </div>
         <div class="box"> <!-- fourth book -->
-            <div class="pdfs">
+            <div class="controls">
                     <div class="uploadDone">
-                        <button class="uploadBtn">
+                        <button class="uploadBtn" data-value = 3>
                             <i class="fas fa-file-upload"></i>
                         </button>
-                        <button class=doneBtn>
+                        <button class=doneBtn data-value = 3>
                             <i class="fas fa-check-square"></i>
                         </button>
                     </div>
-                        <button class="openBtn">
+                        <button class="openBtn" data-value = 3>
                             <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
                             target="blank"> <i class="fa-solid fa-book-open"></i> </a>
                         </button>
@@ -158,16 +159,16 @@
             </div>
         </div>
         <div class="box"> <!-- fifth book -->
-            <div class="pdfs">
+            <div class="controls">
                     <div class="uploadDone">
-                        <button class="uploadBtn">
+                        <button class="uploadBtn" data-value = 4>
                             <i class="fas fa-file-upload"></i>
                         </button>
-                        <button class="doneBtn">
+                        <button class="doneBtn" data-value = 4>
                             <i class="fas fa-check-square"></i>
                         </button>
                     </div>
-                    <button class=openBtn>
+                    <button class=openBtn data-value = 4>
                         <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
                         target="blank"> <i class="fa-solid fa-book-open"></i> </a>
                     </button>
@@ -240,6 +241,12 @@
             <div class="bar shadow indeterminate-40 zigZag"></div>
         </div>
         -->
+        <div class="done-container">
+            <div class="done-popup">
+                <h3>You're done reading</h3>
+                <h4 class="book-name"></h4>
+            </div>
+        </div>
     </div>
     <!-- <div class="bar topography"></div> -->
 

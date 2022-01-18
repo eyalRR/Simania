@@ -1,6 +1,6 @@
 
 
-console.log(firebase.auth());
+console.log("auth: " , firebase.auth());
 
 
 async function main() {
@@ -81,7 +81,7 @@ class Book {
             }else{
                 console.log(c);
                 user.delete(c.id);
-                user.add(`dafa`,`268`,`66`,id_arr);
+                user.add(``,``,``,id_arr);
                 console.log(`index = ${id_arr}, replaced`);
             }
         });
@@ -105,6 +105,7 @@ let pagesRead = document.querySelectorAll('.pagesRead');
 let uploadBtn = document.querySelectorAll('.uploadBtn');
 let doneBtn = document.querySelectorAll('.doneBtn');
 let openBtn = document.querySelectorAll('.openBtn');
+const dn_container = document.querySelector('.done-container');
 
 // ADD Event Listeners
 form.forEach(form =>{
@@ -121,13 +122,22 @@ uploadBtn.forEach((upBtn,id) =>{
 doneBtn.forEach((dnBtn,id) =>{
     dnBtn.addEventListener('mouseover', hoverStyle);
     dnBtn.addEventListener('mouseout', hoverStyle);
-    dnBtn.addEventListener('click', donePdf);
+    dnBtn.addEventListener('click', () =>{
+        donePdf(id, book);
+    });
 }); 
 openBtn.forEach((opBtn,id) =>{
     opBtn.addEventListener('mouseover', hoverStyle);
     opBtn.addEventListener('mouseout', hoverStyle);
-    opBtn.addEventListener('click', openPdf);
+    opBtn.addEventListener('click', () => {
+        openPdf(id);
+    });
 }); 
+dn_container.addEventListener('transitionend', () =>{
+    const dn_popup = dn_container.children[0];
+    dn_container.classList.remove('active');
+    dn_popup.classList.remove('active');
+})
 
 //FUNCTION DECLARATION
 function hoverStyle(e){
@@ -148,12 +158,43 @@ function hoverStyle(e){
 function uploadPdf(){
     
 }
-function donePdf(){
-
+function donePdf(id, book){
+    const dn_popup = dn_container.children[0];
+    dn_container.classList.add('active');
+    dn_popup.classList.add('active');
+    const bookNameHeader = document.querySelector('.done-popup .book-name')
+    bookNameHeader.innerText = bookName[id].value;
+    book.delete(`${id}`);
+    book.add("","","",`${id}`);
+    refreshBooks();
 }
-function openPdf(){
+function openPdf(id){
     let pdf = "./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" ;
     window.open(pdf);
+}
+function refreshBooks(){
+    let a = book.getAll();
+    console.log(`UPLOAD BOOKS:`);
+    let b = a.then(value => { // Value = all books from firestore
+        value.forEach((book,id)=>{
+            console.log(`${id+1}) ${book.name}`);
+            bookName[id].value =book.name;
+            totalPages[id].value =book.totalPages;
+            pagesRead[id].value =book.pagesRead;
+            //Fill Bars
+            if(totalPages[id].value !=0){
+                let fill = pagesRead[id].value / totalPages[id].value * 100;
+                bars[id].style.width = `${fill}%`;
+            }
+            console.log(totalPages[id].value);
+            if(totalPages[id].value === ""){
+                console.log('hi');
+                let fill = 0;
+                bars[id].style.width = `${fill}%`;
+            }
+        });
+        
+    });
 }
 
 // Maim program
@@ -165,20 +206,8 @@ const book = new Book();
 //book.add(`forex`,`268`,`66`,'5');
 
 //Upload books from firestore(server) when page refreshed
-let a = book.getAll();
-console.log(`UPLOAD BOOKS:`);
-let b = a.then(value => { // Value = all books from firestore
-    value.forEach((book,id)=>{
-        console.log(`${id+1}) ${book.name}`);
-        bookName[id].value =book.name;
-        totalPages[id].value =book.totalPages;
-        pagesRead[id].value =book.pagesRead;
-        //Fill Bars
-        let fill = pagesRead[id].value / totalPages[id].value * 100;
-        bars[id].style.width = `${fill}%`;
-    });
-    
-});
+refreshBooks(book);
+
   
 bars.forEach((bar, index) => {
   progress[index].addEventListener('mouseover', () => {
