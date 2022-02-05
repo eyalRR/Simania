@@ -654,11 +654,21 @@ svg {
     justify-content: center;
     align-items: center;
   }
+  .bookName {
+    width: 150px;
+  }
+  .pagesInputRow p {
+    width: 100;
+  }
   .controls {
     order: 0;
   }
   .openBtn {
     order: 0;
+  }
+  .progress {
+    height: 50px;
+    margin: 35px;
   }
 }
 
@@ -670,11 +680,21 @@ svg {
     justify-content: center;
     align-items: center;
   }
+  .bookName {
+    width: 150px;
+  }
+  .pagesInputRow p {
+    width: 100;
+  }
   .controls {
     order: 0;
   }
   .openBtn {
     order: 0;
+  }
+  .progress {
+    height: 50px;
+    margin: 35px;
   }
 }
 
@@ -686,10 +706,20 @@ svg {
     justify-content: center;
     align-items: center;
   }
+  .bookName {
+    width: 150px;
+  }
+  .pagesInputRow p {
+    width: 100;
+  }
   .controls {
     order: 0;
   }
   .openBtn {
     order: 0;
+  }
+  .progress {
+    height: 50px;
+    margin: 35px;
   }
 }
