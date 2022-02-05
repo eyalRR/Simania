@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Bitter");
-
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,10 +7,10 @@
 }
 
 :root {
-  --font: "Bitter", serif;
+  --font: "Heebo", serif;
   --title-size: 36px;
   --sub-size: 18px;
-  --book-size: 16px;
+  --book-size: 15px;
 }
 
 body {
@@ -48,7 +48,12 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+.first-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .controls {
   display: flex;
   flex-direction: row;
@@ -580,5 +585,63 @@ svg {
   }
   to {
     background-position: 0 0;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .bookName,
+  .totalPages,
+  .pagesRead,
+  .pagesInputRow p {
+    font-size: 13px;
+  }
+  .first-line {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }

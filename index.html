@@ -30,43 +30,45 @@
           </div>
 
         <div class="box"> <!--first book--> 
-            <div class="controls">
-                    <div class="uploadDone">          
-                        <button class=uploadBtn data-value = 0>
-                            <label>
-                                <i class="fas fa-file-upload"></i>
-                            </label>
-                            <input type="file" class="uploadPdf"/>
-                        </button>
-                        <button class="doneBtn" data-value = 0>
-                            <i class="fas fa-check-square"></i>
-                        </button>
-                    </div>
+            <div class="first-line">
+                <div class="controls">
+                        <div class="uploadDone">          
+                            <button class=uploadBtn data-value = 0>
+                                <label>
+                                    <i class="fas fa-file-upload"></i>
+                                </label>
+                                <input type="file" class="uploadPdf"/>
+                            </button>
+                            <button class="doneBtn" data-value = 0>
+                                <i class="fas fa-check-square"></i>
+                            </button>
+                        </div>
                         <button class="openBtn" data-value = 0>
                             <a 
                             href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
                             target="blank"> <i class="fa-solid fa-book-open"></i> </a>
                         </button>
-            </div>                
-            <div class="pagesNumber">
-                <input type="text" class="bookName" id="bookName" value="">
-                <div class="pagesInputRow">
-                    <p>Total pages</p>
-                    <input type="number" class="totalPages" id="totalPages" value=>
+                </div> 
+                <div class="pagesNumber">
+                    <input type="text" class="bookName" id="bookName" value="">
+                    <div class="pagesInputRow">
+                        <p>Total pages</p>
+                        <input type="number" class="totalPages" id="totalPages" value=>
+                    </div>
+                    <div class="pagesInputRow">
+                        <p>Pages read</p>
+                        <input type="number" class="pagesRead" id="pagesRead" value=>
+                    </div>
                 </div>
-                <div class="pagesInputRow">
-                    <p>Pages read</p>
-                    <input type="number" class="pagesRead" id="pagesRead" value=>
-                </div>
-            </div>
-
+            </div>               
             <div class="progress">
                 <div class="bar shadow indeterminate-60 overlap"></div>
             </div>
         </div>
 
         <div class="box"> <!-- second book -->
-            <div class="controls">
+            <div class="first-line">
+                <div class="controls">
                     <div class="uploadDone">
                         <button class="uploadBtn" data-value = 1>
                             <i class="fas fa-file-upload"></i>
@@ -79,112 +81,115 @@
                             <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
                             target="blank"> <i class="fa-solid fa-book-open"></i> </a>
                         </button>  
+                </div> 
+                <div class="pagesNumber">
+                    <input type="text" class="bookName" id="bookName" value="">
+                    <div class="pagesInputRow">
+                        <p>Total pages</p>
+                        <input type="number" class="totalPages" id="totalPages" value=>
+                    </div>
+                    <div class="pagesInputRow">
+                        <p>Pages read</p>
+                        <input type="number" class="pagesRead" id="pagesRead" value=>
+                    </div>
+                </div>
             </div> 
-            <div class="pagesNumber">
-                <input type="text" class="bookName" id="bookName" value="">
-                <div class="pagesInputRow">
-                    <p>Total pages</p>
-                    <input type="number" class="totalPages" id="totalPages" value=>
+                <div class="progress">
+                    <div class="bar shadow indeterminate-60 leaf"></div>
                 </div>
-                <div class="pagesInputRow">
-                    <p>Pages read</p>
-                    <input type="number" class="pagesRead" id="pagesRead" value=>
-                </div>
-            </div>
-
-            <div class="progress">
-                <div class="bar shadow indeterminate-60 leaf"></div>
-            </div>
         </div>
         <div class="box"> <!-- third book -->
-            <div class="controls">
-                    <div class="uploadDone">
-                        <button class="uploadBtn" data-value = 2>
-                            <i class="fas fa-file-upload"></i>
-                        </button>
-                        <button class=doneBtn data-value = 2>
-                            <i class="fas fa-check-square"></i>
-                        </button>
+            <div class="first-line">
+                <div class="controls">
+                        <div class="uploadDone">
+                            <button class="uploadBtn" data-value = 2>
+                                <i class="fas fa-file-upload"></i>
+                            </button>
+                            <button class=doneBtn data-value = 2>
+                                <i class="fas fa-check-square"></i>
+                            </button>
+                        </div>
+                            <button class="openBtn" data-value = 2>
+                                <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
+                                target="blank"> <i class="fa-solid fa-book-open"></i> </a>
+                            </button>  
+                </div> 
+                <div class="pagesNumber">
+                    <input type="text" class="bookName" id="bookName" value="">
+                    <div class="pagesInputRow">
+                        <p>Total pages</p>
+                        <input type="number" class="totalPages" id="totalPages" value=>
                     </div>
-                        <button class="openBtn" data-value = 2>
-                            <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
-                            target="blank"> <i class="fa-solid fa-book-open"></i> </a>
-                        </button>  
-            </div> 
-            <div class="pagesNumber">
-                <input type="text" class="bookName" id="bookName" value="">
-                <div class="pagesInputRow">
-                    <p>Total pages</p>
-                    <input type="number" class="totalPages" id="totalPages" value=>
-                </div>
-                <div class="pagesInputRow">
-                    <p>Pages read</p>
-                    <input type="number" class="pagesRead" id="pagesRead" value=>
+                    <div class="pagesInputRow">
+                        <p>Pages read</p>
+                        <input type="number" class="pagesRead" id="pagesRead" value=>
+                    </div>
                 </div>
             </div>
-
             <div class="progress">
                 <div class="bar shadow indeterminate-40 bars"></div>
             </div>
         </div>
         <div class="box"> <!-- fourth book -->
-            <div class="controls">
-                    <div class="uploadDone">
-                        <button class="uploadBtn" data-value = 3>
-                            <i class="fas fa-file-upload"></i>
-                        </button>
-                        <button class=doneBtn data-value = 3>
-                            <i class="fas fa-check-square"></i>
-                        </button>
+            <div class="first-line"> 
+                <div class="controls">
+                        <div class="uploadDone">
+                            <button class="uploadBtn" data-value = 3>
+                                <i class="fas fa-file-upload"></i>
+                            </button>
+                            <button class=doneBtn data-value = 3>
+                                <i class="fas fa-check-square"></i>
+                            </button>
+                        </div>
+                            <button class="openBtn" data-value = 3>
+                                <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
+                                target="blank"> <i class="fa-solid fa-book-open"></i> </a>
+                            </button>
+                </div> 
+                <div class="pagesNumber">
+                    <input type="text" class="bookName" id="bookName" value="">
+                    <div class="pagesInputRow">
+                        <p>Total pages</p>
+                        <input type="number" class="totalPages" id="totalPages" value=>
                     </div>
-                        <button class="openBtn" data-value = 3>
-                            <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
-                            target="blank"> <i class="fa-solid fa-book-open"></i> </a>
-                        </button>
-            </div> 
-            <div class="pagesNumber">
-                <input type="text" class="bookName" id="bookName" value="">
-                <div class="pagesInputRow">
-                    <p>Total pages</p>
-                    <input type="number" class="totalPages" id="totalPages" value=>
-                </div>
-                <div class="pagesInputRow">
-                    <p>Paged read</p>
-                    <input type="number" class="pagesRead" id="pagesRead" value=>
+                    <div class="pagesInputRow">
+                        <p>Paged read</p>
+                        <input type="number" class="pagesRead" id="pagesRead" value=>
+                    </div>
                 </div>
             </div>
-
             <div class="progress">
                 <div class="bar shadow indeterminate-80 lines"></div>
             </div>
         </div>
         <div class="box"> <!-- fifth book -->
-            <div class="controls">
-                    <div class="uploadDone">
-                        <button class="uploadBtn" data-value = 4>
-                            <i class="fas fa-file-upload"></i>
+            <div class="first-line">
+                <div class="controls">
+                        <div class="uploadDone">
+                            <button class="uploadBtn" data-value = 4>
+                                <i class="fas fa-file-upload"></i>
+                            </button>
+                            <button class="doneBtn" data-value = 4>
+                                <i class="fas fa-check-square"></i>
+                            </button>
+                        </div>
+                        <button class=openBtn data-value = 4>
+                            <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
+                            target="blank"> <i class="fa-solid fa-book-open"></i> </a>
                         </button>
-                        <button class="doneBtn" data-value = 4>
-                            <i class="fas fa-check-square"></i>
-                        </button>
+                </div> 
+                <div class="pagesNumber">
+                    <input type="text" class="bookName" id="bookName" value="">
+                    <div class="pagesInputRow">
+                        <p>Total pages</p>
+                        <input type="number" class="totalPages" id="totalPages" value=>
                     </div>
-                    <button class=openBtn data-value = 4>
-                        <a href="./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" 
-                        target="blank"> <i class="fa-solid fa-book-open"></i> </a>
-                    </button>
-            </div> 
-            <div class="pagesNumber">
-                <input type="text" class="bookName" id="bookName" value="">
-                <div class="pagesInputRow">
-                    <p>Total pages</p>
-                    <input type="number" class="totalPages" id="totalPages" value=>
-                </div>
-                <div class="pagesInputRow">
-                    <p>Pages read</p>
-                    <input type="number" class="pagesRead" id="pagesRead" value=>
+                    <div class="pagesInputRow">
+                        <p>Pages read</p>
+                        <input type="number" class="pagesRead" id="pagesRead" value=>
+                    </div>
                 </div>
             </div>
-
             <div class="progress">
                 <div class="bar shadow indeterminate-52 wiggle"></div>
             </div>
