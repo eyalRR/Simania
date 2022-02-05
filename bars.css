@@ -601,9 +601,14 @@ svg {
   .pagesInputRow p {
     font-size: 13px;
   }
+  .bookName {
+    width: 140px;
+  }
+  .pagesInputRow p {
+    width: 90px;
+  }
   .controls {
     order: 1;
-    margin-left: 1.5rem;
   }
   .openBtn {
     order: -1;
@@ -617,9 +622,14 @@ svg {
     align-items: center;
     flex-direction: column;
   }
+  .pagesInputRow p {
+    width: 90;
+  }
   .controls {
     order: 1;
-    margin-left: 1.5rem;
+  }
+  .openBtn {
+    order: -1;
   }
 }
 
@@ -631,6 +641,12 @@ svg {
     justify-content: center;
     align-items: center;
   }
+  .controls {
+    order: 0;
+  }
+  .openBtn {
+    order: 0;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -641,6 +657,12 @@ svg {
     justify-content: center;
     align-items: center;
   }
+  .controls {
+    order: 0;
+  }
+  .openBtn {
+    order: 0;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -650,5 +672,11 @@ svg {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+  .controls {
+    order: 0;
+  }
+  .openBtn {
+    order: 0;
   }
 }
