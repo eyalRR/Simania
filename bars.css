@@ -167,8 +167,8 @@ svg {
     rgba(255, 200, 255, 0.5)
   );
   box-shadow: 7px 7px 15px #888888;
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 15px;
+  padding: 8px;
 }
 
 .bookName {
@@ -613,6 +613,11 @@ svg {
   .openBtn {
     order: -1;
   }
+  .progress {
+    height: 30px;
+    margin: 0px;
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -622,6 +627,9 @@ svg {
     align-items: center;
     flex-direction: column;
   }
+  .bookName {
+    width: 140px;
+  }
   .pagesInputRow p {
     width: 90;
   }
@@ -630,6 +638,11 @@ svg {
   }
   .openBtn {
     order: -1;
+  }
+  .progress {
+    height: 30px;
+    margin: 0px;
+    margin-bottom: 1.5rem;
   }
 }
 
