@@ -119,6 +119,7 @@ body {
   border-radius: 0.5rem;
   cursor: pointer;
   margin-bottom: 1rem;
+  margin-top: 0px;
 }
 .done-popup .execute:hover {
   background: blue;
@@ -132,7 +133,7 @@ body {
 .done-popup h3,
 .update-popup h3 {
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 .done-container.active,
 .update-container.active {
