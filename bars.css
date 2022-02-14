@@ -92,7 +92,7 @@ body {
   border-radius: 2rem;
   transition: transform 0.5s ease;
   transform: translateY(-2rem);
-  min-width: 50%;
+  width: 60%;
   min-height: 20vh;
 }
 .done-popup .close-window {
@@ -131,7 +131,7 @@ body {
 }
 .done-popup h3,
 .update-popup h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-top: 1rem;
 }
 .done-container.active,
