@@ -66,7 +66,8 @@ body {
   align-items: center;
   padding: 1rem;
 }
-.done-container {
+.done-container,
+.update-container {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -81,7 +82,8 @@ body {
   opacity: 0;
   pointer-events: none;
 }
-.done-popup {
+.done-popup,
+.update-popup {
   background: white;
   display: flex;
   flex-direction: column;
@@ -93,15 +95,45 @@ body {
   min-width: 50%;
   min-height: 20vh;
 }
-.done-popup h4 {
+.done-popup .close-window {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  font-size: 1rem;
+  background: Red;
+  color: rgb(255, 255, 255);
+  padding: 0.3rem 0.6rem;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  cursor: pointer;
+}
+.done-popup .close-window:hover {
+  background: rgb(174, 0, 0);
+}
+.done-popup .execute {
+  font-size: 1.2rem;
+  padding: 0.1rem 0.6rem;
+  border: solid 2px blue;
+  color: blue;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.done-popup .execute:hover {
+  background: blue;
+  color: white;
+}
+.done-popup h4,
+.update-popup h4 {
   font-size: 2rem;
   padding: 2rem;
 }
-.done-container.active {
+.done-container.active,
+.update-container.active {
   opacity: 1;
   pointer-events: all;
 }
-.done-popup.active {
+.done-popup.active,
+.update-popup.active {
   transform: translateY(0rem);
 }
 

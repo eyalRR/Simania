@@ -62,7 +62,7 @@ class Book {
   async delete(id) {
       try {
           await this.usersRef.doc(id).delete();
-          console.log('Book is deleted with id: ', id);
+          console.log('Book deleted with id: ', id);
       } catch (error) {
           console.error('Error in deleting book: ', error);
       }
@@ -106,6 +106,10 @@ let uploadBtn = document.querySelectorAll('.uploadBtn');
 let doneBtn = document.querySelectorAll('.doneBtn');
 let openBtn = document.querySelectorAll('.openBtn');
 const dn_container = document.querySelector('.done-container');
+const closeBtn = document.querySelector('.close-window');
+const exeBtn = document.querySelector('.execute');
+const update_container = document.querySelector('.update-container');
+
 
 // ADD Event Listeners
 form.forEach(form =>{
@@ -133,13 +137,37 @@ openBtn.forEach((opBtn,id) =>{
         openPdf(id);
     });
 }); 
-dn_container.addEventListener('transitionend', () =>{
-    const dn_popup = dn_container.children[0];
+closeBtn.addEventListener('click', () =>{
+    let dn_popup = dn_container.children[0];
     dn_container.classList.remove('active');
     dn_popup.classList.remove('active');
 })
+exeBtn.addEventListener('click', () =>{
+    let dn_popup = dn_container.children[0];
+    dn_container.classList.remove('active');
+    dn_popup.classList.remove('active');
+    
+    id = dn_container.getAttribute("id");
+    book.delete(`${id}`);
+    book.add("","","",`${id}`);
+    refreshBooks();
+
+})
+update_container.addEventListener('transitionend', () =>{
+    const update_popup = update_container.children[0];
+    update_container.classList.remove('active');
+    update_popup.classList.remove('active');
+})
 
 //FUNCTION DECLARATION
+function updateBook(id, book){
+    const update_popup = update_container.children[0];
+    update_container.classList.add('active');
+    update_popup.classList.add('active');
+    const bookNameHeader = document.querySelector('.update-popup .book-name')
+    bookNameHeader.innerText = bookName[id].value;
+}
+
 function hoverStyle(e){
     //console.log(e)
     const btn = e.target;
@@ -155,7 +183,7 @@ function hoverStyle(e){
         btn.style.color = 'rgb(0, 0, 255)';
     }   
 }
-function uploadPdf(){
+function uploadPdf(){ //still empty
     
 }
 function donePdf(id, book){
@@ -164,9 +192,7 @@ function donePdf(id, book){
     dn_popup.classList.add('active');
     const bookNameHeader = document.querySelector('.done-popup .book-name')
     bookNameHeader.innerText = bookName[id].value;
-    book.delete(`${id}`);
-    book.add("","","",`${id}`);
-    refreshBooks();
+    dn_container.setAttribute("id", id);
 }
 function openPdf(id){
     let pdf = "./pdf/Digital_image_processing_by_Rafael_C._Go.pdf" ;
@@ -188,7 +214,6 @@ function refreshBooks(){
             }
             console.log(totalPages[id].value);
             if(totalPages[id].value === ""){
-                console.log('hi');
                 let fill = 0;
                 bars[id].style.width = `${fill}%`;
             }
@@ -197,7 +222,7 @@ function refreshBooks(){
     });
 }
 
-// Maim program
+// Main program
 
 const book = new Book();
 //book.add(`harry`,`512`,`66`,'2');
@@ -221,6 +246,8 @@ bars.forEach((bar, index) => {
 
     let fill = pagesRead[index].value / totalPages[index].value * 100;
     bar.style.width = `${fill}%`; 
+
+    updateBook(index, book);
 
     /*const randomTiming = Math.floor((Math.random() * 2) + 2);
     console.log(randomTiming);
