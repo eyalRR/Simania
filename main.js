@@ -1,8 +1,10 @@
 
 
-console.log("auth: " , firebase.auth());
+//console.log("auth: " , firebase.auth());
 
  
+
+  
 function googleSignInPopup() {
     let provider = new firebase.auth.GoogleAuthProvider();
    // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
@@ -11,7 +13,7 @@ function googleSignInPopup() {
     firebase.auth()
       .signInWithPopup(provider)
       .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
+        // @type {firebase.auth.OAuthCredential} 
         var credential = result.credential;
   
         // This gives you a Google Access Token. You can use it to access the Google API.
