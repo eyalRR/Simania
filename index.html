@@ -274,23 +274,27 @@
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <!-- Add Firebase and Firestore -->
+   <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+
 
    <!-- Add Configuraion keys -->
    <script> 
         const firebaseConfig = {
-            apiKey: 'AIzaSyAY6Yg0ODD7W5wyIWHDJQFc0p1TbW7YiCM',
-            authDomain: 'https://gallant-pike-9e51c2.netlify.app/',
-            projectId: 'simania-13dcb',
-            storageBucket: 'simania-13dcb',
-            mesasageingSenderId: 'simania-13dcb',
-            appId: 'simania-13dcb'
+            apiKey: "AIzaSyAY6Yg0ODD7W5wyIWHDJQFc0p1TbW7YiCM",
+            authDomain: "simania-13dcb.firebaseapp.com",
+            projectId: "simania-13dcb",
+            storageBucket: "simania-13dcb.appspot.com",
+            messagingSenderId: "762838195234",
+            appId: "1:762838195234:web:a525b8aad49d856e997e7b",
+            measurementId: "G-5TZC7GFSYE"
         };
-
         // Initialize Firebase 
         firebase.initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
 
         // Initialize FireStore
         const db = firebase.firestore();
