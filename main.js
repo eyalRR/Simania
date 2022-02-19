@@ -2,6 +2,57 @@
 
 console.log("auth: " , firebase.auth());
 
+let provider = new firebase.auth.GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+
+function googleSignInPopup(provider) {
+    console.log('signIn');
+    // [START auth_google_signin_popup]
+    firebase.auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
+  
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        console.log('hi')
+        // ...
+      }).catch((error) => {
+        console.log('bye')
+
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorMessage)
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    // [END auth_google_signin_popup]
+  }
+
+  function makeGoogleCredential(googleUser) {
+    // [START auth_make_google_credential]
+    var credential = firebase.auth.GoogleAuthProvider.credential(
+      googleUser.getAuthResponse().id_token);
+    // [END auth_make_google_credential]
+  }
+
+  function signOut() {
+    // [START auth_sign_out]
+    firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+    // [END auth_sign_out]
+  }
+
 
 async function main() {
   const userObj = new Book();
@@ -109,9 +160,14 @@ const dn_container = document.querySelector('.done-container');
 const closeBtn = document.querySelector('.close-window');
 const exeBtn = document.querySelector('.execute');
 const update_container = document.querySelector('.update-container');
+const signBtn = document.querySelector('.sign-btn');
 
 
 // ADD Event Listeners
+signBtn.addEventListener('click',()=>{
+    googleSignInPopup(provider)
+});
+
 form.forEach(form =>{
     form.addEventListener('click',e => {
         e.preventDefault();
