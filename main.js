@@ -19,6 +19,8 @@ function googleSignInPopup(provider) {
         // The signed-in user info.
         var user = result.user;
         console.log('hi')
+        console.log(user)
+
         // ...
       }).catch((error) => {
         console.log('bye')
