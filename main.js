@@ -2,10 +2,10 @@
 
 console.log("auth: " , firebase.auth());
 
-let provider = new firebase.auth.GoogleAuthProvider();
-provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-
-function googleSignInPopup(provider) {
+ 
+function googleSignInPopup() {
+    let provider = new firebase.auth.GoogleAuthProvider();
+   // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     console.log('signIn');
     // [START auth_google_signin_popup]
     firebase.auth()
@@ -166,9 +166,7 @@ const signBtn = document.querySelector('.sign-btn');
 
 
 // ADD Event Listeners
-signBtn.addEventListener('click',()=>{
-    googleSignInPopup(provider)
-});
+signBtn.addEventListener('click',googleSignInPopup);
 
 form.forEach(form =>{
     form.addEventListener('click',e => {
