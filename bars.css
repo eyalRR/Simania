@@ -301,14 +301,23 @@ svg {
   clear: both;
 }
 #user-info {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 200, 255, 0.5),
+    rgba(152, 255, 173, 0.2),
+    rgba(174, 234, 252, 0.5)
+  );
+  border-radius: 20px;
   font-family: "Bitter", sans-serif;
+  font-size: 1rem;
   clear: both;
   margin: 0 auto 20px;
   max-width: 400px;
   padding: 10px;
   text-align: left;
   position: absolute;
-  top: 0;
+  top: 5px;
+  left: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -320,9 +329,9 @@ svg {
   margin-bottom: 10px;
 }
 #photo {
-  height: 60px;
+  height: 50px;
   margin: 0;
-  width: 60px;
+  width: 50px;
   border-radius: 50%;
 }
 @media (max-width: 300px) {
@@ -707,6 +716,9 @@ svg {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .github {
+    margin: 40px;
+  }
   .box {
     display: flex;
     align-items: center;
@@ -717,6 +729,7 @@ svg {
   .pagesRead,
   .pagesInputRow p {
     font-size: 13.3px;
+    font-weight: normal;
   }
   .bookName {
     width: 140px;
