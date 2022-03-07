@@ -12,7 +12,6 @@
   --sub-size: 18px;
   --book-size: 15px;
 }
-
 body {
   background: rgb(229, 229, 229);
   font-family: var(--font);
@@ -291,6 +290,84 @@ svg {
   /* 25 50 */
   box-shadow: 0px 45px 50px rgba(0, 0, 0, 0.25);
 }
+
+.hidden {
+  display: none;
+}
+
+/* authentication style */
+
+.clearfix {
+  clear: both;
+}
+#user-info {
+  font-family: "Bitter", sans-serif;
+  clear: both;
+  margin: 0 auto 20px;
+  max-width: 400px;
+  padding: 10px;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+#photo-container {
+  background-color: none;
+  float: left;
+  margin-bottom: 10px;
+}
+#photo {
+  height: 60px;
+  margin: 0;
+  width: 60px;
+  border-radius: 50%;
+}
+@media (max-width: 300px) {
+  #photo-container,
+  #photo {
+    height: 40px;
+    width: 40px;
+  }
+}
+#sign-out,
+#delete-account,
+.sign-btn {
+  border: 1px solid #ccc;
+  color: black;
+  font-size: 1rem;
+  border-radius: 20px;
+  margin: 0rem 0.3rem;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 200, 255, 0.5),
+    rgba(152, 255, 173, 0.2),
+    rgba(174, 234, 252, 0.5)
+  );
+}
+#sign-out:hover,
+#delete-account:hover,
+.sign-btn:hover {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 0, 191, 0.3),
+    rgba(0, 255, 51, 0.3),
+    rgba(2, 178, 232, 0.3)
+  );
+}
+#user-signed-in p {
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  right: 0;
+}
+.sign-btn {
+  font-size: 1.2rem;
+}
+
+/* animations */
 
 .crosses {
   background-color: #dfdbe5;

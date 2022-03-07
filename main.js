@@ -1,14 +1,12 @@
 
 
-//console.log("auth: " , firebase.auth());
-
- 
+ // firebase authentication //////////////
 
   
 function googleSignInPopup() {
     let provider = new firebase.auth.GoogleAuthProvider();
    // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    console.log('signIn');
+    console.log('sign in with Google');
     // [START auth_google_signin_popup]
     firebase.auth()
       .signInWithPopup(provider)
@@ -20,8 +18,8 @@ function googleSignInPopup() {
         var token = credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log('hi')
-        console.log(user)
+        console.log('Hi')
+        console.log(user.displayName)
 
         // ...
       }).catch((error) => {
@@ -57,6 +55,68 @@ function googleSignInPopup() {
     // [END auth_sign_out]
   }
 
+/**
+ * Displays the UI for a signed in user.
+ * @param {!firebase.User} user
+ */
+ var handleSignedInUser = function(user) {
+    document.getElementById('user-signed-in').style.display = 'block';
+    document.getElementById('user-signed-out').style.display = 'none';
+    document.getElementById('name').textContent ="Hello " + user.displayName.split(' ')[0];
+    /*document.getElementById('email').textContent = user.email;
+    document.getElementById('phone').textContent = user.phoneNumber;*/
+    if (user.photoURL) {
+      var photoURL = user.photoURL;
+      // Append size to the photo URL for Google hosted images to avoid requesting
+      // the image with its original resolution (using more bandwidth than needed)
+      // when it is going to be presented in smaller size.
+      if ((photoURL.indexOf('googleusercontent.com') != -1) ||
+          (photoURL.indexOf('ggpht.com') != -1)) {
+        photoURL = photoURL + '?sz=' +
+            document.getElementById('photo').clientHeight;
+      }
+      document.getElementById('photo').src = photoURL;
+      document.getElementById('photo').style.display = 'block';
+    } else {
+      document.getElementById('photo').style.display = 'none';
+    }
+  };
+  
+  
+/**
+ * Displays the UI for a signed out user.
+ */
+ var handleSignedOutUser = function() {
+    document.getElementById('user-signed-in').style.display = 'none';
+    document.getElementById('user-signed-out').style.display = 'block';
+    //ui.start('#firebaseui-container', getUiConfig());
+  };
+  
+  // Listen to change in auth state so it displays the correct UI for when
+  // the user is signed in or not.
+  firebase.auth().onAuthStateChanged(function(user) {
+    user ? handleSignedInUser(user) : handleSignedOutUser();
+  });
+  
+  /**
+   * Deletes the user's account.
+   */
+  var deleteAccount = function() {
+    firebase.auth().currentUser.delete().catch(function(error) {
+      if (error.code == 'auth/requires-recent-login') {
+        // The user's credential is too old. She needs to sign in again.
+        firebase.auth().signOut().then(function() {
+          // The timeout allows the message to be displayed after the UI has
+          // changed to the signed out state.
+          setTimeout(function() {
+            alert('Please sign in again to delete your account.');
+          }, 1);
+        });
+      }
+    });
+  };
+ 
+/* till here the firebase authentication*/ 
 
 async function main() {
   const userObj = new Book();
@@ -165,6 +225,9 @@ const closeBtn = document.querySelector('.close-window');
 const exeBtn = document.querySelector('.execute');
 const update_container = document.querySelector('.update-container');
 const signBtn = document.querySelector('.sign-btn');
+document.getElementById('sign-out').addEventListener('click', function() {
+    firebase.auth().signOut();
+  });
 
 
 // ADD Event Listeners
