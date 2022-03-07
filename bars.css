@@ -301,15 +301,10 @@ svg {
   clear: both;
 }
 #user-info {
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 200, 255, 0.5),
-    rgba(152, 255, 173, 0.2),
-    rgba(174, 234, 252, 0.5)
-  );
+  border: 1px solid #ccc;
   border-radius: 20px;
   font-family: "Bitter", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   clear: both;
   margin: 0 auto 20px;
   max-width: 400px;
@@ -329,17 +324,10 @@ svg {
   margin-bottom: 10px;
 }
 #photo {
-  height: 50px;
+  height: 40px;
   margin: 0;
-  width: 50px;
+  width: 40px;
   border-radius: 50%;
-}
-@media (max-width: 300px) {
-  #photo-container,
-  #photo {
-    height: 40px;
-    width: 40px;
-  }
 }
 #sign-out,
 #delete-account,
